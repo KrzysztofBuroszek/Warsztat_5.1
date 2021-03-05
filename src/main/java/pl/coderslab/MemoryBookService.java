@@ -59,22 +59,23 @@ public class MemoryBookService {
         book.setId(newId);
         newId++;
         listOfBooks.add(book);
+        log.info("Dodano książkę ******************************************");
     }
 
     public void deleteBook(Long id) {
-        List<Book> add = books();
+        List<Book> delete = books();
         try {
-            add
+            delete
                     .stream()
                     .filter(book -> !book.getId().equals(id))
-                    .collect(Collectors.toList()); //zmienić na usuwanie z listy na stałe.
+                    .collect(Collectors.toList());
 
-            log.info("delete " + id + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            add
+            log.info("delete " + id + " ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+            delete
                     .stream()
                     .forEach(System.out::println);
 
-            listOfBooks = add;
+            listOfBooks = delete;
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
             log.info("Index" + id + " out of bounds for length");
