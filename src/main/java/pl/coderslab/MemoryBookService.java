@@ -1,6 +1,6 @@
 // usunąć nadmiarowy kod, zwłaszcza w loggerach !!!!!!!!!!!!!!!!!!!!!
 //delete dokończyć.
-// zrobić przekierowanie na stronę główną.
+// zrobić przekierowanie na stronę główną jeśli id wykracza
 
 package pl.coderslab;
 
@@ -38,19 +38,21 @@ public class MemoryBookService {
 
 
     public Book BookId(Long id) {
-        listOfBooks = books();
+        Book result = null;
         try {
+            listOfBooks = books();
             listOfBooks
                     .stream()
                     .filter(book -> book.getId().equals(id))
                     .collect(Collectors.toList());
 
             log.info("book" + listOfBooks.get(Math.toIntExact(id) - 1) + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            result = listOfBooks.get(Math.toIntExact(id) - 1);
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
             log.info("Index" + id + " out of bounds for length");
         }
-        return listOfBooks.get(Math.toIntExact(id) - 1);
+        return result;
     }
 
     public void addBook(Book book) {
@@ -60,7 +62,7 @@ public class MemoryBookService {
     }
 
     public void deleteBook(Long id) {
-        List<Book>add = books();
+        List<Book> add = books();
         try {
             add
                     .stream()
@@ -80,7 +82,8 @@ public class MemoryBookService {
     }
 
     public void updateBook(Book updatedBook, Long id) { //w postmanie sprawdzić.
-        List<Book>updateOfBook = books();
+
+        List<Book> updateOfBook = books();
         try {
             updateOfBook.stream()
                     .map(book -> {

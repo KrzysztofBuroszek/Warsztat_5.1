@@ -9,15 +9,4 @@ public interface BookService {
 
 
 
-    List<Book> getBooks();
-
-
-    Book get(Long id);
-    List<Book> getBookList();
-    void add(Book book);
-    void update(Book book);
-    void delete(Long id);
-
-
-
 }

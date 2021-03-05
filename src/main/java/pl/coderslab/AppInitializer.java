@@ -1,7 +1,7 @@
 package pl.coderslab;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import pl.coderslab.AppConfig;
+import pl.coderslab.configurations.AppConfig;
 
 public class AppInitializer extends
         AbstractAnnotationConfigDispatcherServletInitializer {

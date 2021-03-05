@@ -146,7 +146,7 @@ public class BookController {
     }
 
 
-    @PutMapping("")
+    @PutMapping("/update")
     public void updateBook(@RequestBody Book updatedBook) {
         memoryBookService.updateBook(updatedBook, updatedBook.getId());// nie działa
     }
