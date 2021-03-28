@@ -1,4 +1,4 @@
-package pl.coderslab;
+package pl.coderslab.configurations;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import pl.coderslab.configurations.AppConfig;

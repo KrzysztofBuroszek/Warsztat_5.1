@@ -95,13 +95,13 @@
 
 package pl.coderslab.controller;
 
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.Book;
 import pl.coderslab.MemoryBookService;
+import pl.coderslab.Book;
 
-
+//import java.awt.print.Book;
 import java.util.List;
 
 
@@ -146,7 +146,7 @@ public class BookController {
     }
 
 
-    @PutMapping("/update")
+    @PutMapping("")
     public void updateBook(@RequestBody Book updatedBook) {
         memoryBookService.updateBook(updatedBook, updatedBook.getId());// nie działa
     }
